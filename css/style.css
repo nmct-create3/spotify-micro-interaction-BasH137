@@ -1,65 +1,141 @@
 @import "https://unpkg.com/open-props/easings.min.css";
 
 :root {
-    /* spotify colors*/
-    --spotify-green: #1ed760;
-    --spotify-black: #121212;
-    --spotify-white: #ffffff;
-    --spotify-grey: #b3b3b3;
-    --spotify-darkGrey: #222222;
+  /* spotify colors*/
+  --spotify-green: #1ed760;
+  --spotify-black: #121212;
+  --spotify-white: #ffffff;
+  --spotify-grey: #b3b3b3;
+  --spotify-darkGrey: #222222;
+}
+
+@font-face {
+  font-family: "Manrope-font"; /* You can choose any name for your font */
+  src: url("../assets/Font/Manrope-VariableFont_wght.ttf") format("truetype"); /* Path to your .ttf file */
+  font-weight: normal;
+  font-style: normal;
 }
 
 /* reset */
 
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-size: 1rem;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-size: 1rem;
 }
 
 img,
 svg {
-    display: block;
-    max-width: 100%;
-    height: auto;
+  display: block;
+  max-width: 100%;
+  height: auto;
 }
 
 /* global page styles */
 
-html {}
+html {
+}
 
 /* center everything */
 
-body {}
+body {
+  font-family: "Manrope-font", sans-serif; /* Use the font in your styles */
+  background-color: var(--spotify-black);
+}
 
 /*
     Object: Button reset
     ---
     Small button reset object
 */
+.grid-container {
+  display: grid;
+  height: 100vh; /* Optional: Set the height of the container to the full viewport height */
+  place-items: center; /* This shorthand property centers both horizontally and vertically */
+}
+.album {
+  background-color: var(--spotify-darkGrey);
+  color: var(--spotify-white);
+  max-width: 400px;
+  padding: 1.5rem;
+  border-radius: 5%;
+}
+
+.icon--check{
+    color: var(--spotify-green);
+}
+
+.album__header{
+    padding-top: 1.5rem;
+    display: grid;
+    /* grid-template-columns: 9fr 1fr; */
+    grid-template-columns: 1fr 2rem;
+    grid-template-rows: 1fr 1fr; 
+    justify-items: start;
+}
+
+.toggle__icon {
+    /* Todo should not be neccecary */
+    width: 100%; 
+    height: auto; 
+  }
+
+.album__title{
+
+}
+
+.album__artist{
+    grid-row-start: 2;
+}
+
+.album__action {
+    grid-row: span 2; /* De knop beslaat twee rijen */
+    /* Voeg eventuele stijlen voor de knop toe */
+  }
+
+  .album__action.clicked {
+    animation: spinAndFade 1s var(--ease-spring-2) forwards;
+    transform-origin: center center;
+}   
+
+@keyframes spinAndFade {
+    0% {
+        transform: rotate(0deg);
+        opacity: 1;
+    }
+    50% {
+        transform: rotate(180deg);
+        opacity: 0.5;
+    }
+    100% {
+        transform: rotate(360deg);
+        opacity: 1;
+    }
+}
+
 
 .button-reset {
-    border: none;
-    margin: 0;
-    padding: 0;
-    width: auto;
-    overflow: visible;
-    background: transparent;
+  border: none;
+  margin: 0;
+  padding: 0;
+  width: auto;
+  overflow: visible;
+  background: transparent;
 
-    /* inherit font & color from ancestor */
-    color: inherit;
-    font: inherit;
+  /* inherit font & color from ancestor */
+  color: inherit;
+  font: inherit;
 
-    /* Normalize `line-height`. Cannot be changed from `normal` in Firefox 4+. */
-    line-height: normal;
+  /* Normalize `line-height`. Cannot be changed from `normal` in Firefox 4+. */
+  line-height: normal;
 
-    /* Corrects font smoothing for webkit */
-    -webkit-font-smoothing: inherit;
-    -moz-osx-font-smoothing: inherit;
+  /* Corrects font smoothing for webkit */
+  -webkit-font-smoothing: inherit;
+  -moz-osx-font-smoothing: inherit;
 
-    /* Corrects inability to style clickable `input` types in iOS */
-    -webkit-appearance: none;
+  /* Corrects inability to style clickable `input` types in iOS */
+  -webkit-appearance: none;
 }
 
 /*
@@ -75,5 +151,5 @@ body {}
 */
 
 .color-grey {
-    color: var(--spotify-grey);
+  color: var(--spotify-grey);
 }
